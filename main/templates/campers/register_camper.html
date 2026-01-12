@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация ребёнка</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/register_camper.css' %}">
+
+</head>
+<body>
+    <div class="card">
+        <h2>Регистрация ребёнка в лагерь</h2>
+
+        <form id="camperForm" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+
+            <label for="camp_id">Выберите лагерь:</label>
+            <select id="camp_id" name="camp_id" required>
+                <option value="">-- Выберите лагерь --</option>
+                {% for camp in camps %}
+                    <option value="{{ camp.id }}">{{ camp.name }} — {{ camp.location }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="uploaded_id">Загрузите PDF удостоверения:</label>
+            <input type="file" id="uploaded_id" name="uploaded_id" accept="application/pdf" required>
+
+            <button type="submit">Зарегистрировать</button>
+        </form>
+
+        <div class="messages" id="messages"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById("camperForm");
+        const messagesDiv = document.getElementById("messages");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            messagesDiv.innerHTML = "";
+
+            const formData = new FormData();
+            const fileInput = document.getElementById("uploaded_id");
+            const campSelect = document.getElementById("camp_id");
+
+            if(campSelect.value === "") {
+                messagesDiv.innerHTML = '<p class="error">Выберите лагерь!</p>';
+                return;
+            }
+
+            if(fileInput.files.length === 0) {
+                messagesDiv.innerHTML = '<p class="error">Выберите PDF файл!</p>';
+                return;
+            }
+
+            formData.append("camp_id", campSelect.value);
+            formData.append("uploaded_id", fileInput.files[0]);
+
+            const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+            try {
+                const response = await fetch("{% url 'api_register_camper' %}", {
+                    method: "POST",
+                    headers: { 'X-CSRFToken': csrftoken },
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if(response.ok) {
+                    messagesDiv.innerHTML = `<p class="success">${data.success}</p>`;
+                    form.reset();
+                } else {
+                    if(data.errors) {
+                        data.errors.forEach(err => {
+                            messagesDiv.innerHTML += `<p class="error">${err}</p>`;
+                        });
+                    } else if(data.error) {
+                        messagesDiv.innerHTML = `<p class="error">${data.error}</p>`;
+                    } else if(data.detail) {
+                        messagesDiv.innerHTML = `<p class="error">${data.detail}</p>`;
+                    }
+                }
+            } catch (err) {
+                messagesDiv.innerHTML = `<p class="error">Ошибка: ${err}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>

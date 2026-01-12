@@ -1,0 +1,49 @@
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_head %}
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="avatar-circle">
+                <span class="avatar-text">{{ request.user.username|make_list|first|upper }}</span>
+            </div>
+            <h2 class="profile-title">{% trans "Profile" %}</h2>
+        </div>
+
+        <div class="profile-info">
+            <div class="info-item">
+                <span class="info-label">{% trans "Username" %}:</span>
+                <span class="info-value">{{ request.user.username }}</span>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label">{% trans "Email" %}:</span>
+                <span class="info-value">{{ request.user.email }}</span>
+            </div>
+            
+            <div class="info-item">
+                <span class="info-label">{% trans "Member since" %}:</span>
+                <span class="info-value">{{ request.user.date_joined|date:"d.m.Y H:i" }}</span>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <a href="{% url 'account_email' %}" class="btn btn-primary">
+                {% trans "Change Email" %}
+            </a>
+            <a href="{% url 'account_change_password' %}" class="btn btn-secondary">
+                {% trans "Change Password" %}
+            </a>
+            <a href="{% url 'account_logout' %}" class="btn btn-logout">
+                {% trans "Logout" %}
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

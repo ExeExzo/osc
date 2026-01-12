@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация ребенка на лагерь</title>
+    <style>
+        body { font-family: Arial; background: #f1f5f9; padding: 40px; }
+        .form-container { max-width: 500px; margin: auto; background: white; padding: 20px 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);}
+        h2 { text-align: center; margin-bottom: 20px; }
+        input, file { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; }
+        button { width: 100%; padding: 12px; border: none; border-radius: 5px; background: #2563eb; color: white; font-weight: bold; cursor: pointer; }
+        button:hover { background: #1d4ed8; }
+        .messages { margin-bottom: 15px; }
+        .messages p { padding: 10px; border-radius: 5px; }
+        .success { background: #4ade80; color: #065f46; }
+        .error { background: #f87171; color: #7f1d1d; }
+        .warning { background: #fde68a; color: #78350f; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Регистрация ребенка на лагерь</h2>
+
+    <div class="messages">
+        {% for message in messages %}
+            <p class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зарегистрировать</button>
+    </form>
+</div>
+
+</body>
+</html>

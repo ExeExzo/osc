@@ -1,0 +1,121 @@
+/* Reset a bit */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e5e7eb;
+}
+
+/* Main auth container */
+.auth-box {
+  width: 100%;
+  max-width: 380px;
+  background: #020617;
+  padding: 30px 28px;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid #1e293b;
+}
+
+/* Titles */
+.auth-box h2 {
+  text-align: center;
+  margin-bottom: 22px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.auth-links {
+  width: 100%;
+  max-width: 380px;
+  background: #020617;
+  padding: 20px 28px;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border: 1px solid #1e293b;
+}
+
+/* Django form paragraphs */
+.auth-box form p {
+  margin-bottom: 14px;
+}
+
+/* Labels */
+.auth-box label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* Inputs */
+.auth-box input {
+  width: 100%;
+  padding: 11px 12px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  background: #020617;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.auth-box input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+/* Button */
+.auth-box button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #020617;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.auth-box button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+}
+
+/* Links */
+.auth-box a {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: #38bdf8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.auth-box a:hover {
+  text-decoration: underline;
+}
+
+/* Error messages */
+.auth-box .errorlist {
+  list-style: none;
+  padding: 8px 10px;
+  margin: 6px 0 10px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  color: #fecaca;
+  font-size: 13px;
+}
