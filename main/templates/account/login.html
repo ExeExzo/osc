@@ -7,14 +7,14 @@
 
 {% block content %}
 <div class="auth-box">
-  <h2>Login</h2>
+  <h2>Логин</h2>
 
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Login</button>
+    <button type="submit">Логин</button>
   </form>
 
-  <a href="{% url 'account_signup' %}">Register</a>
+  <a href="{% url 'account_signup' %}">Регистрация</a>
 </div>
 {% endblock %}

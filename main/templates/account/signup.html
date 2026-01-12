@@ -7,16 +7,16 @@
 
 {% block content %}
 <div class="auth-box">
-  <h2>Register</h2>
+  <h2>Регистрация</h2>
 
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Create account</button>
+    <button type="submit">Создать аккаунт</button>
   </form>
 
   <p class="auth-links">
-    Already have an account? <a href="{% url 'account_login' %}">Log in</a>
+    У вас уже есть аккаунт? <a href="{% url 'account_login' %}">Логин</a>
   </p>
 </div>
 {% endblock %}

@@ -208,3 +208,6 @@ __marimo__/
 
 # Ignore collected static files
 /staticfiles/
+
+# Ignore db.sqlite3
+db.sqlite3

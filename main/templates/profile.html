@@ -13,7 +13,7 @@
             <div class="avatar-circle">
                 <span class="avatar-text">{{ request.user.username|make_list|first|upper }}</span>
             </div>
-            <h2 class="profile-title">{% trans "Profile" %}</h2>
+            <h2 class="profile-title">{% trans "Профиль" %}</h2>
         </div>
 
         <div class="profile-info">
@@ -35,13 +35,16 @@
 
         <div class="profile-actions">
             <a href="{% url 'account_email' %}" class="btn btn-primary">
-                {% trans "Change Email" %}
+                {% trans "Поменять почту" %}
             </a>
             <a href="{% url 'account_change_password' %}" class="btn btn-secondary">
-                {% trans "Change Password" %}
+                {% trans "Поменять пароль" %}
+            </a>
+            <a href="{% url 'register_camper_page' %}" class="btn btn-success">
+                {% trans "Регистрация в лагерь" %}
             </a>
             <a href="{% url 'account_logout' %}" class="btn btn-logout">
-                {% trans "Logout" %}
+                {% trans "Выход" %}
             </a>
         </div>
     </div>
