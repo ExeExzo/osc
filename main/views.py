@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework_tracking.mixins import LoggingMixin
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from .serializers import CamperRegistrationSerializer, CampSerializer
@@ -14,13 +13,6 @@ from .models import *
 import pdfplumber
 import re
 from datetime import datetime, date
-
-class SafeLoggingMixin(LoggingMixin):
-    def _clean_data(self, data):
-        try:
-            return super()._clean_data(data)
-        except UnicodeDecodeError:
-            return "<binary data omitted>"
 
 
 @login_required(login_url="account_login")
