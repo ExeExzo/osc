@@ -14,7 +14,7 @@ class Camp(models.Model):
 
     capacity = models.PositiveIntegerField("Максимум детей", default=0)
     is_active = models.BooleanField("Активен", default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return f"{self.name} — {self.location}"

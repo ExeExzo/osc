@@ -1,0 +1,86 @@
+[
+  {
+    "model": "main.camp",
+    "pk": 1,
+    "fields": {
+      "name": "Лагерь Солнечный",
+      "location": "Алматы, Казахстан",
+      "description": "Летний лагерь для детей с увлекательными занятиями и экскурсиями.",
+      "start_date": "2026-06-01",
+      "end_date": "2026-06-14",
+      "capacity": 50,
+      "is_active": true,
+      "created_at": "2026-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "main.camp",
+    "pk": 2,
+    "fields": {
+      "name": "Лагерь Радуга",
+      "location": "Шымкент, Казахстан",
+      "description": "Креативный лагерь с творческими мастер-классами и спортивными играми.",
+      "start_date": "2026-07-01",
+      "end_date": "2026-07-15",
+      "capacity": 40,
+      "is_active": true,
+      "created_at": "2026-01-01T10:05:00Z"
+    }
+  },
+  {
+    "model": "main.camp",
+    "pk": 3,
+    "fields": {
+      "name": "Лагерь Звёздочка",
+      "location": "Астана, Казахстан",
+      "description": "Образовательный лагерь с научными и спортивными активностями.",
+      "start_date": "2026-06-15",
+      "end_date": "2026-06-28",
+      "capacity": 60,
+      "is_active": true,
+      "created_at": "2026-01-01T10:10:00Z"
+    }
+  },
+  {
+    "model": "main.camp",
+    "pk": 4,
+    "fields": {
+      "name": "Лагерь Морской Бриз",
+      "location": "Актау, Казахстан",
+      "description": "Лагерь у моря с плаванием и активными играми.",
+      "start_date": "2026-07-10",
+      "end_date": "2026-07-24",
+      "capacity": 45,
+      "is_active": true,
+      "created_at": "2026-01-01T10:15:00Z"
+    }
+  },
+  {
+    "model": "main.camp",
+    "pk": 5,
+    "fields": {
+      "name": "Лагерь Лесная Сказка",
+      "location": "Кокшетау, Казахстан",
+      "description": "Экологический лагерь с походами и мастер-классами.",
+      "start_date": "2026-08-01",
+      "end_date": "2026-08-14",
+      "capacity": 35,
+      "is_active": true,
+      "created_at": "2026-01-01T10:20:00Z"
+    }
+  },
+  {
+    "model": "main.camp",
+    "pk": 6,
+    "fields": {
+      "name": "Лагерь Горный Ветер",
+      "location": "Алматинская область, Казахстан",
+      "description": "Приключенческий лагерь в горах.",
+      "start_date": "2026-08-15",
+      "end_date": "2026-08-28",
+      "capacity": 50,
+      "is_active": true,
+      "created_at": "2026-01-01T10:25:00Z"
+    }
+  }
+]
