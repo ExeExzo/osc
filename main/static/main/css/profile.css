@@ -1,8 +1,8 @@
-/* Profile Page Styling - Matching Auth Pages */
+/* Profile Page Styling - Bright Version */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #0f172a;
-    color: #e5e7eb;
+    background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+    color: #1f2937;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,12 +17,12 @@ body {
 }
 
 .profile-card {
-    background: #020617;
+    background: #ffffff;
     padding: 32px;
     border-radius: 16px;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
 }
 
 .profile-header {
@@ -33,13 +33,13 @@ body {
 .avatar-circle {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #facc15 0%, #f97316 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px;
-    border: 3px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 .avatar-text {
@@ -49,14 +49,13 @@ body {
 }
 
 .profile-title {
-    color: #f1f5f9;
+    color: #1f2937;
     font-size: 24px;
     font-weight: 600;
     margin: 0;
 }
 
 .profile-info {
-    space-y: 20px;
     margin-bottom: 32px;
 }
 
@@ -65,7 +64,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .info-item:last-child {
@@ -73,15 +72,15 @@ body {
 }
 
 .info-label {
-    color: #94a3b8;
+    color: #6b7280;
     font-size: 14px;
     font-weight: 500;
 }
 
 .info-value {
-    color: #f1f5f9;
+    color: #1f2937;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .profile-actions {
@@ -107,30 +106,42 @@ body {
 }
 
 .btn-primary {
-    background: #2563eb;
+    background: linear-gradient(135deg, #4f46e5, #0ea5e9);
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
+    background: linear-gradient(135deg, #6366f1, #3b82f6);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 4px 12px rgba(79,70,229,0.3);
 }
 
 .btn-secondary {
-    background: #4b5563;
+    background: #f59e0b;
 }
 
 .btn-secondary:hover {
-    background: #374151;
+    background: #d97706;
     transform: translateY(-1px);
 }
 
+.btn-third {
+    background: linear-gradient(135deg, #0aaf78, #72c5a9);
+}
+
+.btn-third:hover {
+    background: #059669;
+}
+
+.btn-fourth {
+    background-color: #ec4899;
+}
+
 .btn-logout {
-    background: #dc2626;
+    background: #ef4444;
 }
 
 .btn-logout:hover {
-    background: #b91c1c;
+    background: #dc2626;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
 }
@@ -162,13 +173,6 @@ body {
         flex-direction: column;
         align-items: flex-start;
         gap: 4px;
-    }
-}
-
-/* Dark mode enhancements */
-@media (prefers-color-scheme: dark) {
-    .profile-card {
-        background: rgba(2, 6, 23, 0.95);
     }
 }
 

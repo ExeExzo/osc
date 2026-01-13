@@ -37,10 +37,13 @@
             <a href="{% url 'account_email' %}" class="btn btn-primary">
                 {% trans "Поменять почту" %}
             </a>
-            <a href="{% url 'account_change_password' %}" class="btn btn-secondary">
+            <a href="{% url 'account_change_password' %}" class="btn btn-primary">
                 {% trans "Поменять пароль" %}
             </a>
-            <a href="{% url 'register_camper_page' %}" class="btn btn-success">
+            <a href="{% url 'my_camper' %}" class="btn btn-third">
+                {% trans "Список регистрции" %}
+            </a>
+            <a href="{% url 'register_camper_page' %}" class="btn btn-third">
                 {% trans "Регистрация в лагерь" %}
             </a>
             <a href="{% url 'account_logout' %}" class="btn btn-logout">

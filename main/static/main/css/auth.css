@@ -7,22 +7,22 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #020617);
+  background: linear-gradient(135deg, #a5f3fc, #fef08a);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #e5e7eb;
+  color: #1f2937; /* темно-серый текст на светлом фоне */
 }
 
 /* Main auth container */
 .auth-box {
   width: 100%;
   max-width: 380px;
-  background: #020617;
+  background: #ffffff;
   padding: 30px 28px;
   border-radius: 14px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  border: 1px solid #1e293b;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid #d1d5db;
 }
 
 /* Titles */
@@ -31,16 +31,17 @@ body {
   margin-bottom: 22px;
   font-size: 28px;
   font-weight: 600;
+  color: #1f2937;
 }
 
 .auth-links {
   width: 100%;
   max-width: 380px;
-  background: #020617;
+  background: #ffffff;
   padding: 20px 28px;
   border-radius: 14px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  border: 1px solid #1e293b;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border: 1px solid #d1d5db;
 }
 
 /* Django form paragraphs */
@@ -53,7 +54,7 @@ body {
   display: block;
   margin-bottom: 6px;
   font-size: 14px;
-  color: #cbd5f5;
+  color: #6b7280; /* серый для яркого фона */
 }
 
 /* Inputs */
@@ -61,17 +62,17 @@ body {
   width: 100%;
   padding: 11px 12px;
   border-radius: 8px;
-  border: 1px solid #1e293b;
-  background: #020617;
-  color: white;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #1f2937;
   font-size: 15px;
   outline: none;
   transition: 0.2s;
 }
 
 .auth-box input:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
 }
 
 /* Button */
@@ -81,8 +82,8 @@ body {
   padding: 12px;
   border-radius: 10px;
   border: none;
-  background: linear-gradient(135deg, #38bdf8, #6366f1);
-  color: #020617;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -91,7 +92,7 @@ body {
 
 .auth-box button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.35);
 }
 
 /* Links */
@@ -99,7 +100,7 @@ body {
   display: block;
   text-align: center;
   margin-top: 16px;
-  color: #38bdf8;
+  color: #3b82f6;
   text-decoration: none;
   font-size: 14px;
 }
@@ -113,9 +114,9 @@ body {
   list-style: none;
   padding: 8px 10px;
   margin: 6px 0 10px;
-  background: rgba(239, 68, 68, 0.15);
-  border: 1px solid #ef4444;
+  background: rgba(254, 202, 202, 0.3);
+  border: 1px solid #f87171;
   border-radius: 8px;
-  color: #fecaca;
+  color: #b91c1c;
   font-size: 13px;
 }

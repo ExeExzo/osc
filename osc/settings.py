@@ -25,20 +25,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3xpzn0&csei((m*@cm=i_&36)fkk=fpbxj!+#fs%nuzu9yv)39'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = True
+# DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 
-ALLOWED_HOSTS = ['osc-dcfc.onrender.com']
+# ALLOWED_HOSTS = ['osc-dcfc.onrender.com']
 
-AUTH_USER_MODEL = 'auth.User' 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'SmSapp',
     'main',
+    'user',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,6 +50,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 ]
+
+AUTH_USER_MODEL = "user.User"
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -197,6 +198,10 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated', 
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
     ],
 }
 

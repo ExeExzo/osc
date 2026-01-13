@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Campers</title>
+<link rel="stylesheet" type="text/css" href="{% static 'main/css/my_campers.css' %}">
+</head>
+<body>
+
+<h2>My Campers</h2>
+<div class="messages" id="messages"></div>
+<div id="campers-container"></div>
+
+<script>
+const API_URL = '/api/mycamper/';
+
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+
+async function fetchCampers() {
+    try {
+        const response = await fetch(API_URL, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                // Uncomment if using session authentication
+                //'X-CSRFToken': csrftoken
+            },
+            credentials: 'include' // ensures cookies are sent for session auth
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
+        }
+
+        const campers = await response.json();
+        displayCampers(campers);
+    } catch (error) {
+        showMessage(error.message, 'error');
+    }
+}
+
+function displayCampers(campers) {
+    const container = document.getElementById('campers-container');
+    container.innerHTML = '';
+
+    if (campers.length === 0) {
+        showMessage('У вас пока нет зарегистрированных данных.', 'error');
+        return;
+    }
+
+    campers.forEach(c => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+            <h3>${c.full_name}</h3>
+            <p><strong>IIN:</strong> ${c.iin}</p>
+            <p><strong>Birth Date:</strong> ${c.birth_date}</p>
+            <p><strong>Parent username:</strong> ${c.parent_username}</p>
+            <p><strong>Parent Full Name:</strong> ${c.parent_full_name}</p>
+            <p><strong>Camp:</strong> ${c.camp_name}</p>
+            <p><strong>Status:</strong> ${c.status_display}</p>
+        `;
+        container.appendChild(card);
+    });
+}
+
+function showMessage(message, type) {
+    const messagesDiv = document.getElementById('messages');
+    messagesDiv.innerHTML = `<p class="${type}">${message}</p>`;
+}
+
+// Fetch campers when page loads
+window.addEventListener('DOMContentLoaded', fetchCampers);
+</script>
+
+</body>
+</html>

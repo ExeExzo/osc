@@ -5,6 +5,27 @@ from datetime import datetime, date
 import pdfplumber
 
 
+class CamperSerializer(serializers.ModelSerializer):
+    parent_username = serializers.SerializerMethodField()
+    parent_full_name = serializers.SerializerMethodField()
+    status_display = serializers.CharField(source='get_status_display', read_only=True)
+    camp_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = CamperRegister
+        fields = ['full_name', 'iin', 'birth_date', 'parent', 'parent_username', 'parent_full_name', 'camp_name', 'status', 'status_display']
+        read_only_fields = fields
+
+    def get_parent_username(self, obj):
+        return obj.parent.username if obj.parent else None
+
+    def get_parent_full_name(self, obj):
+        return obj.parent.get_full_name() if obj.parent else None
+    
+    def get_camp_name(self, obj):
+        return obj.camp.name if obj.camp else None
+
+
 class CamperRegistrationSerializer(serializers.ModelSerializer):
     camp_id = serializers.IntegerField(write_only=True, required=True)
     uploaded_id = serializers.FileField(required=True)

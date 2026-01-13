@@ -22,5 +22,4 @@ urlpatterns = [
     path('auth/', include('main.urls')),
 
     path('', include('main.urls')),
-    path('sms/', include("SmSapp.urls"))
 ]

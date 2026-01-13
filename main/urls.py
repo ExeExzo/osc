@@ -19,4 +19,6 @@ urlpatterns = [
     path('api/camps/create/', CreateCampAPI.as_view(), name='api_create_camp'),
     path('register-camper-page/', views.register_camper_page, name='register_camper_page'),
     path('api/register-camper/', RegisterCamperAPI.as_view(), name='api_register_camper'),
+    path('my-camper/', views.my_campers, name='my_camper'),
+    path('api/mycamper/', CampersView.as_view(), name='api_mycamper'),
 ]
