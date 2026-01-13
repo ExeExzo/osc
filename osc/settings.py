@@ -25,12 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3xpzn0&csei((m*@cm=i_&36)fkk=fpbxj!+#fs%nuzu9yv)39'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = os.environ.get("DEBUG", "False") == "True"
+# DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
-# ALLOWED_HOSTS = ['osc-dcfc.onrender.com']
+ALLOWED_HOSTS = ['osc-dcfc.onrender.com']
 
 
 # Application definition
